@@ -1,10 +1,12 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, current_app
 from app.services.chatbot_service import ChatbotService
 from app.utils.security import validate_json_input
 import time
 
 chatbot_bp = Blueprint('chatbot', __name__)
-chatbot_service = ChatbotService()
+
+# No crear una instancia global del servicio
+# El servicio se creará dentro del contexto de la aplicación
 
 @chatbot_bp.route('/chatbot', methods=['POST'])
 def process_chatbot_message():
@@ -38,6 +40,9 @@ def process_chatbot_message():
             "status": "error",
             "message": "El mensaje no puede estar vacío"
         }), 400
+    
+    # Crear e inicializar el servicio dentro del contexto de la aplicación
+    chatbot_service = ChatbotService().initialize()
     
     # Procesar el mensaje y generar respuesta
     start_time = time.time()

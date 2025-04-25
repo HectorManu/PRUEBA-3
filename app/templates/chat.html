@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Compradores y Deudores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Chatbot - Base de Datos de Compradores y Deudores</h1>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot">
+                <div class="message-content">
+                    ¡Hola! Soy el asistente para consultas sobre la base de datos de compradores y deudores. 
+                    Puedes preguntarme cosas como:
+                    <ul>
+                        <li>¿Quiénes son los mejores compradores?</li>
+                        <li>¿Cuáles son los deudores con montos más altos?</li>
+                        <li>¿Cuántos compradores hay en total?</li>
+                        <li>¿Cuántos deudores hay registrados?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí..." autofocus>
+            <button id="send-button">Enviar</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
