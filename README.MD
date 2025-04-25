@@ -219,8 +219,3 @@ Si encuentras errores relacionados con la base de datos, puedes reiniciar la apl
 docker-compose down
 docker-compose up --build
 ```
-
-### La detección de intenciones no funciona correctamente
-Si la detección de intenciones no reconoce bien tus preguntas, puedes:
-1. Si usas OpenAI, intenta ajustar el prompt en `openai_service.py`
-2. Si usas el sistema local, añade nuevos patrones en `fallback_service.py`
